@@ -1,0 +1,23 @@
+{
+  "name": "appointments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.14.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
