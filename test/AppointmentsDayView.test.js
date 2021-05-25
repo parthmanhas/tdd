@@ -14,17 +14,79 @@ describe('Appointment', () => {
 
     const render = component => ReactDOM.render(component, container);
 
+    it('should render a html table', () => {
+        render(<Appointment customer={{}}/>);
+        expect(container.querySelector('table')).not.toBeNull();
+    });
+
+    it('should render First Name as heading in table', () => {
+        render(<Appointment customer={{}} />);
+        expect(container.querySelector('table > tr > th').textContent).toMatch('First Name');
+    });
+
     it('renders the customer first name', () => {
         customer = { firstName: 'Ashley' };
         render(<Appointment customer={customer} />);
-        expect(container.textContent).toMatch(('Ashley'));
+        expect(container.querySelector('table > tr > td').textContent).toMatch(('Ashley'));
     });
 
     it('renders another customer first name', () => {
         customer = { firstName: 'Jordan' };
         render(<Appointment customer={customer} />);
-        expect(container.textContent).toMatch(('Jordan'));
+        expect(container.querySelector('table > tr > td').textContent).toMatch(('Jordan'));
     });
+
+    it('should render Last Name as heading', () => {
+        render(<Appointment customer={{}} />);
+        expect(container.querySelectorAll('table > tr > th')[1].textContent).toMatch('Last Name');
+    })
+
+    it('renders the customer second name', () => {
+        customer = {firstName: 'Ashley', lastName: 'Jordan'};
+        render(<Appointment customer={customer} />);
+        expect(container.querySelectorAll('table > tr > td')[1].textContent).toMatch('Jordan');
+    });
+
+    it('should render a telephone name heading', () => {
+        render(<Appointment customer={{}} />);
+        expect(container.querySelectorAll('table > tr > th')[2].textContent).toMatch('Telephone');
+    });
+
+    it('should render a customer telephone number', () => {
+        render(<Appointment customer={{telephone: '9419194191'}} />);
+        expect(container.querySelectorAll('table > tr > td')[2].textContent).toMatch('9419194191');
+    });
+
+    it('should render a stylist heading', () => {
+        render(<Appointment customer={{}} />);
+        expect(container.querySelectorAll('table > tr > th')[3].textContent).toMatch('Stylist');
+    });
+
+    it('should render a customer stylist', () => {
+        render(<Appointment customer={{stylist: 'Jane'}} />);
+        expect(container.querySelectorAll('table > tr > td')[3].textContent).toMatch('Jane');
+    });
+
+    it('should render a service heading', () => {
+        render(<Appointment customer={{}} />);
+        expect(container.querySelectorAll('table > tr > th')[4].textContent).toMatch('Service');
+    });
+
+    it('should render a customer salon service', () => {
+        render(<Appointment customer={{service: 'Bald Parlor'}} />);
+        expect(container.querySelectorAll('table > tr > td')[4].textContent).toMatch('Bald Parlor');
+    });
+
+    it('should render a notes heading', () => {
+        render(<Appointment customer={{}} />);
+        expect(container.querySelectorAll('table > tr > th')[5].textContent).toMatch('Notes');
+    });
+
+    it('should render a customer notes', () => {
+        render(<Appointment customer={{notes: 'I wanna be bald'}} />);
+        expect(container.querySelectorAll('table > tr > td')[5].textContent).toMatch('I wanna be bald');
+    });
+    
 })
 
 describe('AppointmentsDayView', () => {
@@ -98,4 +160,10 @@ describe('AppointmentsDayView', () => {
         ReactTestUtils.Simulate.click(button);
         expect(container.textContent).toMatch('Jordan');
     });
+
+    it('should render a heading for appointment to make it clear which appointment is being views', () => {
+        render(<AppointmentsDayView appointments={appointments} />);
+        expect(container.querySelector('h1').textContent).toMatch(appointments[0].startsAt.toString());
+    });
+
 })
