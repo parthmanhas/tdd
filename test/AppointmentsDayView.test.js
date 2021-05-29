@@ -21,70 +21,70 @@ describe('Appointment', () => {
 
     it('should render First Name as heading in table', () => {
         render(<Appointment customer={{}} />);
-        expect(container.querySelector('table > tr > th').textContent).toMatch('First Name');
+        expect(container.querySelector('table > tbody > tr > th').textContent).toMatch('First Name');
     });
 
     it('renders the customer first name', () => {
         customer = { firstName: 'Ashley' };
         render(<Appointment customer={customer} />);
-        expect(container.querySelector('table > tr > td').textContent).toMatch(('Ashley'));
+        expect(container.querySelector('table > tbody > tr > td').textContent).toMatch(('Ashley'));
     });
 
     it('renders another customer first name', () => {
         customer = { firstName: 'Jordan' };
         render(<Appointment customer={customer} />);
-        expect(container.querySelector('table > tr > td').textContent).toMatch(('Jordan'));
+        expect(container.querySelector('table > tbody > tr > td').textContent).toMatch(('Jordan'));
     });
 
     it('should render Last Name as heading', () => {
         render(<Appointment customer={{}} />);
-        expect(container.querySelectorAll('table > tr > th')[1].textContent).toMatch('Last Name');
+        expect(container.querySelectorAll('table > tbody > tr > th')[1].textContent).toMatch('Last Name');
     })
 
     it('renders the customer second name', () => {
         customer = {firstName: 'Ashley', lastName: 'Jordan'};
         render(<Appointment customer={customer} />);
-        expect(container.querySelectorAll('table > tr > td')[1].textContent).toMatch('Jordan');
+        expect(container.querySelectorAll('table > tbody > tr > td')[1].textContent).toMatch('Jordan');
     });
 
     it('should render a telephone name heading', () => {
         render(<Appointment customer={{}} />);
-        expect(container.querySelectorAll('table > tr > th')[2].textContent).toMatch('Telephone');
+        expect(container.querySelectorAll('table > tbody > tr > th')[2].textContent).toMatch('Telephone');
     });
 
     it('should render a customer telephone number', () => {
         render(<Appointment customer={{telephone: '9419194191'}} />);
-        expect(container.querySelectorAll('table > tr > td')[2].textContent).toMatch('9419194191');
+        expect(container.querySelectorAll('table > tbody > tr > td')[2].textContent).toMatch('9419194191');
     });
 
     it('should render a stylist heading', () => {
         render(<Appointment customer={{}} />);
-        expect(container.querySelectorAll('table > tr > th')[3].textContent).toMatch('Stylist');
+        expect(container.querySelectorAll('table > tbody > tr > th')[3].textContent).toMatch('Stylist');
     });
 
     it('should render a customer stylist', () => {
         render(<Appointment customer={{stylist: 'Jane'}} />);
-        expect(container.querySelectorAll('table > tr > td')[3].textContent).toMatch('Jane');
+        expect(container.querySelectorAll('table > tbody>  tr > td')[3].textContent).toMatch('Jane');
     });
 
     it('should render a service heading', () => {
         render(<Appointment customer={{}} />);
-        expect(container.querySelectorAll('table > tr > th')[4].textContent).toMatch('Service');
+        expect(container.querySelectorAll('table > tbody > tr > th')[4].textContent).toMatch('Service');
     });
 
     it('should render a customer salon service', () => {
         render(<Appointment customer={{service: 'Bald Parlor'}} />);
-        expect(container.querySelectorAll('table > tr > td')[4].textContent).toMatch('Bald Parlor');
+        expect(container.querySelectorAll('table > tbody > tr > td')[4].textContent).toMatch('Bald Parlor');
     });
 
     it('should render a notes heading', () => {
         render(<Appointment customer={{}} />);
-        expect(container.querySelectorAll('table > tr > th')[5].textContent).toMatch('Notes');
+        expect(container.querySelectorAll('table > tbody > tr > th')[5].textContent).toMatch('Notes');
     });
 
     it('should render a customer notes', () => {
         render(<Appointment customer={{notes: 'I wanna be bald'}} />);
-        expect(container.querySelectorAll('table > tr > td')[5].textContent).toMatch('I wanna be bald');
+        expect(container.querySelectorAll('table > tbody > tr > td')[5].textContent).toMatch('I wanna be bald');
     });
     
 })
