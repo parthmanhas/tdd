@@ -1,0 +1,6 @@
+
+> appointments@1.0.0 test C:\Projects\practice\mastering-react-tdd\appointments
+> jest --watchAll
+
+
+Terminate batch job (Y/N)? 
