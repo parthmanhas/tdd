@@ -112,6 +112,4 @@ describe('CustomerForm', () => {
         itSubmitsExistingValue('phoneField', '012345');
         itSubmitsNewValue('phoneField', '567890');
     });
-
-
 })

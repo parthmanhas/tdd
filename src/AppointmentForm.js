@@ -1,8 +1,11 @@
 import React from 'react';
 
-export const AppointmentForm = ({ selectableServices, service }) => (
-    <form id="appointment">
+export const AppointmentForm = ({ selectableServices, service, onSubmit }) => {
+    const [currentService, setCurrentService] = useState(service);
+    <form id="appointment" onSubmit={() => onSubmit(currentService)}>
+        <label htmlFor="service">Select Service</label>
         <select
+            id="service"
             name="service"
             value={service}
             readOnly>
@@ -11,8 +14,9 @@ export const AppointmentForm = ({ selectableServices, service }) => (
                 <option key={service}>{service}</option>
             ))}
         </select>
+        <input type="submit" value="Book Appointment" />
     </form>
-);
+}
 
 AppointmentForm.defaultProps = {
     selectableServices: [
